@@ -79,7 +79,7 @@ the containers in a pod (use `minikube shh` and `docker stop`).
 
 >Does the pod status changes? Is the killed container gets resurrected?
 
-## Advanced
+## I'm feeling lucky
 
 1. Use the `kubectl port-forward` command to access the wordpress UI
 

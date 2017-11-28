@@ -55,7 +55,7 @@ describe command on the newly created pod?
 >Did the PVC's status changed? How about the PersistentVolume that was created,
 can you see it using the `kubectl get pv` command?
 
-## Advanced
+## I'm feeling lucky
 
 What can you tell about the storage type that was used for the
 PersistentVolume by looking at the default StorageClass?

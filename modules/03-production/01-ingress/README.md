@@ -36,7 +36,7 @@ minikube addons enable ingress
 
 
 
-## Feeling lucky
+## I'm feeling lucky
 1. Create 2 Deployments of NGINX web server
 2. Make the index.html to be represented as configmap
 >Use configmap yaml files from the solution directory to discover something very interesting

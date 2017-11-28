@@ -51,7 +51,7 @@ as expected? You can try accessing the wordpress UI with the
 5. Kill one of the pods, is it resurrected?
 6. If you delete the deployment object of one of the apps, what happens?
 
-## Advanced
+## I'm feeling lucky
 
 1. Create a headless service for the wordpress deployment. What changed? Can you
 still access it's UI?
