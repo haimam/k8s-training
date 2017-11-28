@@ -15,17 +15,16 @@ kubectl scale <RESOURCE> <NAME> --replicas=<NUM>
 Let's take the busybox pod from a few exercises before and turn it into a
 deployable object.
 
-Take the busybox's pod definition and translate it into a deployment.
+1. Take the busybox's pod definition and translate it into a deployment.
 Can you run at least 3 replicas of this pod with one deployment?
 
-After you've create and submitted the deployment file, check that all the
+>After you've create and submitted the deployment file, check that all the
 replicas are up and running with the `kubectl get deployment <NAME>` command.
 
-Now, let's change something and release a new version of our app.
-
+2. Change something and release a new version of our app.
 Change the sleep time to 500, save the deployment file and apply the changes.
 
-What happens now?
+>What happens now?
 Do you see more pods of our busybox container than is defined in the `replicas` field?
 What is the current revision of our deployment object? (`kubectl rollout history ...`)
 

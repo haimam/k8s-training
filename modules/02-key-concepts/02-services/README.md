@@ -39,12 +39,12 @@ ssh`. Remember that you'll need to connect to the **Service IP**.
 
 Exposing a pod is such a common task that kubectl has a handy command to shorten the process.
 
-Delete the wordpress service that you have created in the first step.
+1. Delete the wordpress service that you have created in the first step.
 
-Can you expose the same service using the `kubectl expose` command without using
+2. Expose the same service using the `kubectl expose` command without using
 a YAML configuration?
 
-You can review the YAML specification that Kubernetes created for you with the
+>You can review the YAML specification that Kubernetes created for you with the
 `kubectl get svc <NAME> -o yaml` command. Is it different from what you've
 created yourself before?
 
