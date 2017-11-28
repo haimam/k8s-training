@@ -34,14 +34,14 @@ The simplest pod we can run is a `busybox` container. To simulate a long
 running process, we'll specify a sleep command that will make the container run
 indefinitely.
 
-Create a Kubernetes YAML definition for an equivalent of the following
+1. Create a Kubernetes YAML definition for an equivalent of the following
 Docker run command:
 
 ```
 docker run -ti busybox:latest sleep 1000
 ```
 
-This is the part of the YAML that specifies the sleep command, make sure to fill
+>This is the part of the YAML that specifies the sleep command, make sure to fill
 in the rest of the YAML:
 
 ```
@@ -74,12 +74,12 @@ following environment variables in the pod's YAML definition:
 `WORDPRESS_DB_PASSWORD` (should be `root`) and `WORDPRESS_DB_HOST`.
 5. For the `mysql` container, specify the following environment variable: `MYSQL_ROOT_PASSWORD` (should be `root`).
 
-Now, after you made sure that everything is running properly, try killing one of
+>Now, after you made sure that everything is running properly, try killing one of
 the containers in a pod (use `minikube shh` and `docker stop`).
 
-Does the pod status changes? Is the killed container gets resurrected?
+>Does the pod status changes? Is the killed container gets resurrected?
 
 ## Advanced
 
-Try using the `kubectl port-forward` command to access the wordpress UI
+1. Use the `kubectl port-forward` command to access the wordpress UI
 
