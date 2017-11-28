@@ -34,14 +34,14 @@ We can mount a ConfigMap as a file in any Pod's filesystem.
 For this exercise, we'll take the busybox pod we have created previously, and
 make it present a welcome message we'll define in a separate ConfigMap.
 
-Start by creating a new ConfigMap. You can name it anyway you like.
+1. Create a new ConfigMap. You can name it anyway you like.
 Add a simple text message to the content of one of the keys. You can use the
 YAML file format or the `kubectl create configmap <NAME> --from-file=...` command.
 
-Now, adjust the pod YAML file from lesson 01-pods to inject the content of the
+2. Adjust the pod YAML file from lesson 01-pods to inject the content of the
 ConfigMap you just created in a `/opt/app/message` file inside the running container.
 
-You can adjust the container's command to the following so that it will print
+> You can adjust the container's command to the following so that it will print
 the content of the file:
 
 ```
@@ -51,7 +51,7 @@ command:
 - "cat /opt/app/message && sleep 1000"
 ```
 
-Deploy the new pod and view it's logs with `kubectl logs <POD>` command.
+3. Deploy the new pod and view it's logs with `kubectl logs <POD>` command.
 
 ## Secrets
 
