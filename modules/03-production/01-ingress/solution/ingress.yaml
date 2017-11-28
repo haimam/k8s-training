@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-tutorial
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: minikube.info
+    http:
+      paths:
+      - path: /whitecoke
+        backend:
+          serviceName: whitecoke
+          servicePort: 80
+      - path: /crystalpepsi
+        backend:
+          serviceName: crystalpepsi
+          servicePort: 80
