@@ -27,7 +27,9 @@ minikube addons enable ingress
     ```
     > __Hosts file location:__
     > 
-    > __Windows:__ C:\Windows\System32\drivers\etc (Follow this instructions https://support.microsoft.com/en-us/help/923947/you-cannot-modify-the-hosts-file-or-the-lmhosts-file-in-windows-vista)
+    > __Windows:__ C:\Windows\System32\drivers\etc 
+    > 
+    > (Follow this instructions https://support.microsoft.com/en-us/help/923947/you-cannot-modify-the-hosts-file-or-the-lmhosts-file-in-windows-vista)
     > 
     > __Linux / macOS:__ /etc/hosts
 
