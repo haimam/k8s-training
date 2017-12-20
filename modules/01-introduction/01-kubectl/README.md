@@ -34,7 +34,6 @@ kubectl logs <POD_NAME>
 <POD_NAME>` command
     1. Can you discover pod's internal IP address?
     2. How about it's node. Can you find the IP of the node that is running this pod?
-7. Use `minikube service hello-world` to open the application in the browser
-8. Now let's stop the application by running `kubectl delete pod <NAME>`
-9. Can you access it's UI now? Are there any listed endpoints for the applications service? (`kubectl describe service hello-world`)
-
+6. Use `minikube service hello-world` to open the application in the browser
+7. Now let's stop the application by running `kubectl delete pod <NAME>`
+8. Can you access it's UI now? Are there any listed endpoints for the applications service? (`kubectl describe service hello-world`)
