@@ -31,7 +31,7 @@
 	5. [ConfigMaps and Secrets](https://github.com/pashok2398/k8s-training/tree/master/modules/02-key-concepts/05-configmaps-and-secrets)
 3. Production
 	1. [Ingress](https://github.com/pashok2398/k8s-training/tree/master/modules/03-production/01-ingress)
-	2. [labels and Namespaces](https://github.com/pashok2398/k8s-training/tree/master/modules/03-production/02-labels-and-namespaces)
+	2. [Labels and Namespaces](https://github.com/pashok2398/k8s-training/tree/master/modules/03-production/02-labels-and-namespaces)
 	3. [Probes](https://github.com/pashok2398/k8s-training/tree/master/modules/03-production/04-pod-probes)
 	4. [Deployment Strategies](https://github.com/pashok2398/k8s-training/tree/master/modules/03-production/05-deployment-strategies)
 
