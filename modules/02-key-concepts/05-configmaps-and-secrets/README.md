@@ -3,6 +3,9 @@
 Example of mounting a configmap as a volume:
 https://github.com/kubernetes/kubernetes.github.io/blob/master/docs/user-guide/configmap/mount-file-pod.yaml
 
+Use ConfigMap Data in Pods
+https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
+
 Example of exposing a secret's value as environment variable:
 https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-environment-variables
 
