@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-wp
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: minikube.info
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: wp-http
+          servicePort: 80

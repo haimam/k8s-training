@@ -1,0 +1,11 @@
+apiVersion: v1
+data:
+  index.html: |
+        <html>
+        <body>
+        <a href="https://en.wikipedia.org/wiki/Crystal_Pepsi">Crystal Pepsi</a>
+        </body>
+        </html>
+kind: ConfigMap
+metadata:
+  name: pepsiconfigmap
