@@ -46,7 +46,7 @@ in the rest of the YAML:
 
 ```
 containers:
-  - args:
+  args:
     - sleep
     - "1000"
 ```
