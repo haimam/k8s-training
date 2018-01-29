@@ -75,7 +75,7 @@ following environment variables in the pod's YAML definition:
 5. For the `mysql` container, specify the following environment variable: `MYSQL_ROOT_PASSWORD` (should be `root`).
 
 >Now, after you made sure that everything is running properly, try killing one of
-the containers in a pod (use `minikube shh` and `docker stop`).
+the containers in a pod (use `minikube ssh` and `docker stop`).
 
 >Does the pod status changes? Is the killed container gets resurrected?
 
