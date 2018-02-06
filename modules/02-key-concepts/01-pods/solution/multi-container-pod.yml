@@ -25,19 +25,23 @@ spec:
           value: root
 ---
 # Allow external access
-apiVersion: v1
-kind: Service
-metadata:
-  name: wp-svc
-  labels:
-    app: wp-svc
-spec:
-  type: NodePort
-  ports:
-    - name: http
-      protocol: TCP
-      port: 80
-      targetPort: 80
-      nodePort: 30000
-  selector:
-    app: wordpress-mysql-pod
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: wp-svc
+#  labels:
+#    app: wp-svc
+#spec:
+#  type: NodePort
+#  ports:
+#    - name: http
+#      protocol: TCP
+#      port: 80
+#      targetPort: 80
+#      nodePort: 30000
+#    - name: mysql
+#      port: 3306
+#      targetPort: 3306
+#      nodePort: 30001
+#  selector:
+#    app: wordpress-mysql-pod

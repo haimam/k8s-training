@@ -76,7 +76,7 @@ following environment variables in the pod's YAML definition:
 5. For the `mysql` container, specify the following environment variable: `MYSQL_ROOT_PASSWORD` (should be `root`)
 6. Specify container's port for each container, `80` for wordpress and `3306` for mysql
 
-## Tadaaaa
+## Coming up, services..
 
 1. Use the following service to access the wordpress UI
 ```
