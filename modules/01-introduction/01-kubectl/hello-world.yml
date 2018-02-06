@@ -22,7 +22,8 @@ spec:
   type: NodePort
   ports:
     - name: "30000"
-      port: 30000
+      port: 8080
       targetPort: 80
+      nodePort: 30000
   selector:
     app: hello-world

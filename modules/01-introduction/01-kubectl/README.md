@@ -20,6 +20,8 @@ kubectl get services
 kubectl describe service <NAME>
 kubectl describe pod <NAME>
 kubectl logs <POD_NAME>
+kubectl proxy
+kubectl config view -o jsonpath='{.users[0].user.auth-provider.config.id-token}'
 ```
 
 # Instructions
@@ -48,3 +50,9 @@ on free cluster you should see single worker node
 10. Browse to `http://<WORKER_PUBLIC_IP>:30000` to open the application in the browser
 11. Now let's stop the application by running `kubectl delete pod <NAME>`
 12. Can you access it's UI now? Are there any listed endpoints for the applications service? (`kubectl describe service hello-world`)
+13. Let's open the Kubernetes Dashboard
+    1. Get the credentials using `kubectl config view -o jsonpath='{.users[0].user.auth-provider.config.id-token}'`
+    2. Copy the id-token value that is shown in the output.
+    3. Start the proxy `kubectl proxy`
+    4. Login to the Dashboard ([Login](http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/)) `http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/`
+14. Delete the service using the Kubernetes Dashboard (hint: services tab)

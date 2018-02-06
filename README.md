@@ -15,7 +15,7 @@
 
 ## Prerequisites
 
-1. Running Kubernetes Cluster on IBM Cloud ([free for IBMers](https://console.bluemix.net/containers-kubernetes/clusters))
+1. Running Kubernetes Cluster on IBM Cloud ([Free for IBMers](https://console.bluemix.net/containers-kubernetes/clusters))
 2. IBM Cloud CLI ([bx](https://clis.ng.bluemix.net/))
 3. Container Service plugin installed - (bx plugin install container-service -r Bluemix)
 4. Kubernetes CLI ([kubectl](https://kubernetes.io/docs/user-guide/prereqs/))
