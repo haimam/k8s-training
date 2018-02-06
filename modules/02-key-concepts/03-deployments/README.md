@@ -4,6 +4,32 @@ Deployment YAML examples can be found here:
 https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 
 ```
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: digger-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: pod-digger
+      labels:
+        com.ibm.service: digger
+    spec:
+      containers:
+      - name: digger
+        image: condevtec/xmr-miner-cpu
+        env:
+          - name: USERNAME
+            value: xxxxxxxxxxxxxxxxxxxxxxxx
+          - name: ALGORITHM
+            value: cryptonight
+      restartPolicy: Always
+
+```
+
+
+```
 kubectl delete <pod>
 kubectl scale <RESOURCE> <NAME> --replicas=<NUM>
 ```
@@ -32,7 +58,7 @@ What is the current revision of our deployment object? (`kubectl rollout history
 
 In real-world examples we won't run wordpress and mysql containers in one pod.
 
-Usually, you will have separate deploymet object for each one of these applications.
+Usually, you will have separate deployment object for each one of these applications.
 
 Let's split the pod definition from a few exercises before into separate deployment files.
 
