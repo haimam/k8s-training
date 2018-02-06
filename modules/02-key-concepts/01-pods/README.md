@@ -10,15 +10,17 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: example
+  labels:
+    app: example
 spec:
   restartPolicy: Always
   containers:
     - name: example
-      image: "repo/image:tag"
-      args:
-        - run
-        - --export
-        - something
+      image: repo/image:tag
+      command: ["run"]
+      args: ["--export", "something"]
+      ports:
+        - containerPort: 80
       env:
         - name: SERVER_PROTOCOL
           value: tcp
@@ -26,7 +28,7 @@ spec:
 
 # Instructions
 
-## Simple Echo Pod
+## Simple Single Pod
 
 We'll get our hands dirty by creating and running a simple pod from scratch.
 
@@ -46,9 +48,8 @@ in the rest of the YAML:
 
 ```
 containers:
-  args:
-    - sleep
-    - "1000"
+    command: ["sleep"]
+    args: ["1000"]
 ```
 
 ## Multi-Container Pods
@@ -66,20 +67,36 @@ docker run -p 3306:3306 mysql:5.5
 
 Create a Kubernetes YAML definition of a pod that will run:
 
-1. One `wordpress` container
+1. One `wordpress` container (version *latest*)
 2. One `mysql` container (version *5.5*)
-3. Remember, since both of these containers run in a pod, they can communicate via localhost.
+3. Remember, since both of these containers run in a pod, they can communicate via localhost (127.0.0.1)
 4. Connect the `wordpress` container to it's local `mysql` by specifying the
 following environment variables in the pod's YAML definition:
-`WORDPRESS_DB_PASSWORD` (should be `root`) and `WORDPRESS_DB_HOST`.
-5. For the `mysql` container, specify the following environment variable: `MYSQL_ROOT_PASSWORD` (should be `root`).
+`WORDPRESS_DB_PASSWORD` (should be `root`) and `WORDPRESS_DB_HOST`
+5. For the `mysql` container, specify the following environment variable: `MYSQL_ROOT_PASSWORD` (should be `root`)
+6. Specify container's port for each container, `80` for wordpress and `3306` for mysql
 
->Now, after you made sure that everything is running properly, try killing one of
-the containers in a pod (use `minikube ssh` and `docker stop`).
+## Tadaaaa
 
->Does the pod status changes? Is the killed container gets resurrected?
+1. Use the following service to access the wordpress UI
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: wp-svc
+  labels:
+    app: wp-svc
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30000
+  selector:
+    app: <POD'S_LABEL> # for example above -> app: example
+```
+2. Browse to `http://<WORKER_PUBLIC_IP>:30000`
 
-## I'm feeling lucky
-
-1. Use the `kubectl port-forward` command to access the wordpress UI
 

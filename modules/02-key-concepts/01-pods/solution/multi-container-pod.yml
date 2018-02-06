@@ -1,28 +1,43 @@
----
 apiVersion: v1
 kind: Pod
 metadata:
-  name: wp
+  name: wordpress-mysql-pod
   labels:
-    app: wp
+    app: wordpress-mysql-pod
 spec:
-  containers:
-  - image: wordpress
-    env:
-    - name: WORDPRESS_DB_PASSWORD
-      value: root
-    - name: WORDPRESS_DB_HOST
-      value: 127.0.0.1
-    imagePullPolicy: IfNotPresent
-    name: wordpress
-  - image: mysql:5.5
-    env:
-    - name: MYSQL_ROOT_PASSWORD
-      value: root
-    imagePullPolicy: IfNotPresent
-    name: mysql
   restartPolicy: Always
-
-# Solution to the "advanced" question:
-# kubectl port-forward wp 8001:80
-
+  containers:
+    - name: wordpress
+      image: wordpress:latest
+      ports:
+        - containerPort: 80
+      env:
+        - name: WORDPRESS_DB_PASSWORD
+          value: root
+        - name: WORDPRESS_DB_HOST
+          value: 127.0.0.1
+    - name: mysql
+      image: mysql:5.5
+      ports:
+        - containerPort: 3306
+      env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+---
+# Allow external access
+apiVersion: v1
+kind: Service
+metadata:
+  name: wp-svc
+  labels:
+    app: wp-svc
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30000
+  selector:
+    app: wordpress-mysql-pod

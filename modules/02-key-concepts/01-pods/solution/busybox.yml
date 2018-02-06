@@ -2,14 +2,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: busybox
+  name: one-pod
   labels:
-    app: busybox
+    app: one-pod
 spec:
+  restartPolicy: Always
   containers:
-  - name: busybox
-    image: busybox:latest
-    args:
-      - sleep
-      - "1000"
-
+    - name: one-container
+      image: busybox:latest
+      command: ["sleep"]
+      args: ["1000"]
