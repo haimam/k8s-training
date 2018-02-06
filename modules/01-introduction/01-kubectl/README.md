@@ -1,15 +1,15 @@
 # Prerequisites
 
-1. Install Docker
-2. Install Kubectl
-3. Install Minikube
+1. Running Kubernetes Cluster on IBM Cloud ([free for IBMers](https://console.bluemix.net/containers-kubernetes/clusters))
+2. IBM Cloud CLI ([bx](https://clis.ng.bluemix.net/))
+3. Container Service plugin installed - (bx plugin install container-service -r Bluemix)
+4. Kubernetes CLI ([kubectl](https://kubernetes.io/docs/user-guide/prereqs/))
 
 # Useful commands & links
 
 ```
-minikube start
-minikube status
-minikube delete
+bx login -a https://api.eu-gb.bluemix.net --sso
+bx cs region-set <CLUSTER_LOCATION>
 
 kubectl create -f <YAML_FILE>
 kubectl get nodes
@@ -22,9 +22,14 @@ kubectl logs <POD_NAME>
 
 # Instructions
 
-1. Start a new Kubernetes cluster using `minikube`
-2. Make sure that your cluster is running
-3. Check that your `kubectl` is connected to the new cluster. You can verify it by checking the node names in the cluster (`kubectl get nodes`)
+1. Make sure that your cluster is running on IBM Cloud ([View Clusters](https://console.bluemix.net/containers-kubernetes/clusters))
+2. Log in to your IBM Cloud account using the CLI
+3. Set the region to where your cluster is, for example `uk-south`
+4. Download the kubernetes configuration files to configure your kubectl client's context
+  4.a. Download the config `bx cs cluster-config <CLUSTER_NAME>`
+  4.b. Copy and paste the output to your terminal (SET / export)
+5. Check that your `kubectl` is connected to the new cluster. You can verify it by checking the node names in the cluster (`kubectl get nodes`)
+
 3. Upload the configuration defined in `hello-world.yml` file (`kubectl create -f <file-name>`)
 4. Wait until the application's pod will be in the **running** state by querying it's status with
 `kubectl get pods` command
