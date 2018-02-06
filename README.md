@@ -15,9 +15,11 @@
 
 ## Prerequisites
 
-1. Minikube Linux/Windows/MAC - https://github.com/kubernetes/minikube
-2. Docker fundamentals - https://bit.ly/2ksdlSE
-3. Patience
+1. Running Kubernetes Cluster on IBM Cloud (free for IBMers)
+2. IBM Cloud CLI ([bx](https://clis.ng.bluemix.net/))
+3. Kubernetes CLI ([kubectl](https://kubernetes.io/docs/user-guide/prereqs/))
+4. Docker fundamentals - [https://bit.ly/2ksdlSE](https://bit.ly/2ksdlSE)
+5. Patience
 
 
 ### Labs
@@ -34,4 +36,3 @@
 	2. [Labels and Namespaces](https://github.com/pashok2398/k8s-training/tree/master/modules/03-production/02-labels-and-namespaces)
 	3. [Probes](https://github.com/pashok2398/k8s-training/tree/master/modules/03-production/04-pod-probes)
 	4. [Deployment Strategies](https://github.com/pashok2398/k8s-training/tree/master/modules/03-production/05-deployment-strategies)
-
