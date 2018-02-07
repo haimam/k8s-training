@@ -3,10 +3,6 @@
 Examples of mounting a volume:
 https://kubernetes.io/docs/concepts/storage/volumes/#hostpath
 
-Examples of a PersistentVolumeClaim and how to mount it in a Pod:
-https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes-1
-https://kubernetes.io/docs/concepts/storage/persistent-volumes/#claims-as-volumes
-
 # Instructions
 
 ## Volumes
@@ -33,37 +29,3 @@ and check that your data is still on disk with the next command:
 ```
 kubectl exec -ti <NEW_MYSQL_POD_NAME> -- ls /var/lib/mysql/
 ```
-
-## PersistentVolumes and Claims
-
-To make our mysql deployment files more portable and less coupled to the
-specific storage mechanism configured in the cluster, let's change the mysql
-deployment to use a PersistentVolume and Claims instead of a volume.
-
-1. Create a PersistentVolumeClaim, set it to 1G of storage, and submit it
-to minikube's cluster.
-
->What's its status? Can you view your claim using the `kubectl get pvc` command?
-Were you required to specify the exact storage type or protocol?
-
-2. Modify the mysql deployment from the exercise above and instead of mounting
-a volume, mount the PVC directly.
-
-3. Submit your new deployment file. Can you see that it's worked by running a
-describe command on the newly created pod?
-
->Did the PVC's status changed? How about the PersistentVolume that was created,
-can you see it using the `kubectl get pv` command?
-
-## I'm feeling lucky
-
-What can you tell about the storage type that was used for the
-PersistentVolume by looking at the default StorageClass?
-Can you see where on the host disk the PV data is saved? Try describing the PVC and PV resources.
-
-1. Delete the mysql deployment with the `kubectl delete deployment ...` command.
-What happened to the PV and PVC we have created?
-
-Try deleting the PVC now. What happened to the PV that was created based on it?
-Can we make the PersistentVolume outlive the PVC that created it?
-
