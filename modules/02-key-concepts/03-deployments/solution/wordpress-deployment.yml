@@ -6,7 +6,7 @@ metadata:
   labels:
     app: wp
 spec:
-  replicas: 3
+  replicas: 2
   template:
     metadata:
       labels:
@@ -19,7 +19,7 @@ spec:
         - name: WORDPRESS_DB_PASSWORD
           value: root
         - name: WORDPRESS_DB_HOST
-          value: mysql.default.svc
+          value: mysql
         ports:
         - containerPort: 80
 

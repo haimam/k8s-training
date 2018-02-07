@@ -15,7 +15,6 @@ spec:
       containers:
       - name: busybox
         image: busybox:latest
-        args:
-          - sleep
-          - "1000"
+        command: ["sleep"]
+        args: ["1000"]
 

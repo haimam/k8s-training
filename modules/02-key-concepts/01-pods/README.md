@@ -78,25 +78,4 @@ following environment variables in the pod's YAML definition:
 
 ## Coming up, services..
 
-1. Use the following service to access the wordpress UI
-```
-apiVersion: v1
-kind: Service
-metadata:
-  name: wp-svc
-  labels:
-    app: wp-svc
-spec:
-  type: NodePort
-  ports:
-    - name: http
-      protocol: TCP
-      port: 80
-      targetPort: 80
-      nodePort: 30000
-  selector:
-    app: <POD'S_LABEL> # for example above -> app: example
-```
-2. Browse to `http://<WORKER_PUBLIC_IP>:30000`
-
 
