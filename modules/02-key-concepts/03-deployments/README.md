@@ -55,7 +55,7 @@ Do you see more pods of our busybox container than is defined in the `replicas` 
 What is the current revision of our deployment object? (`kubectl rollout history ...`)
 
 3. Let's scale the number of pods to 4, using `kubectl scale <RESOURCE> <NAME> --replicas=<NUM>` command
-
+4. Delete the deployment `kubectl delete -f <deployment-file>`
 ## Splitting The Pod Into Separate Deployments
 
 In real-world examples we won't run wordpress and mysql containers in one pod.
