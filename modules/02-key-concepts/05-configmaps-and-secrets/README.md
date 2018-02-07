@@ -10,6 +10,19 @@ Example of exposing a secret's value as environment variable:
 https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-environment-variables
 
 ```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: <MAP_NAME>
+data:
+  message: |
+    This is a message you should see in busybox's logs.
+    enemies=aliens
+    lives=3
+```
+
+Useful commands
+```
 kubectl edit <CONFIG_MAP>
 Kubectl create configmap <NAME> --from-literal=<KEY>=<VALUE>
 kubectl create configmap <NAME> --from-file=<FILENAME>
@@ -17,6 +30,8 @@ kubectl create configmap <NAME> --from-file=<FILENAME>
 --from-file=<KEY>=<PATH_TO_FILE>
 
 echo "<DECODED_SECRET_DATA>" | base64 -d
+
+kubectl create secret generic <NAME> --from-literal=username=produser
 
 # Mapping a secret to Environment variable:
 env:
