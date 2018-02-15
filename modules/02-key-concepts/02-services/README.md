@@ -34,8 +34,9 @@ traffic outside IBM Cloud cluster. Let's do it now!
 
 1. Create a YAML service definition to route traffic to the wordpress container from the previous exercise.
 2. Check that the new service has any active endpoints using the `kubectl describe svc ...` command.
-2. Make sure that you can connect to the wordpress UI with a browser, use
-`minikube service ...` command to connect via the newly created service.
+3. Make sure that you can connect to the wordpress UI with a browser, Browse to http://<WORKER_PUBLIC_IP>:30000 to open the application in the browser
+                                                                      
+
 
 Services are Layer 4 constructs which means you aren't restricted to HTTP only,
 you can expose TCP and UDP traffic too.
